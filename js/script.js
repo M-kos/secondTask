@@ -19,8 +19,9 @@ btn.addEventListener('click', function () {
 
     stepAccessibility(val, xIndex, yIndex);
 
-    alert(finalStr.toUpperCase());
-
+    // alert(finalStr.toUpperCase());
+    modalOpen(finalStr.toUpperCase());
+    finalStr = '';
 });
 
 function valueCheck(val, xInd, yInd) {
@@ -44,4 +45,15 @@ function stepAccessibility(val, xInd, yInd) {
             finalStr += letters[xIndex + horizontalAcces[i]] + numbers[yIndex + verticalAcces[i]] + ' ';
         }
     }
+}
+function modalOpen(res) {
+    const modal = document.querySelector('.modal');
+    const result = document.querySelector('#result');
+    const closeBtn = document.querySelector('#close-window');
+
+    modal.style.display = 'block';
+    result.innerHTML = res
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
 }
